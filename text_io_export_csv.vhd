@@ -5,7 +5,7 @@ library IEEE;
 
 package text_io_export_csv is
 
-  constant NUM_COL : integer := 30;
+  constant NUM_COL : integer := 60;
   constant Integer_width : integer := 5;
   constant time_width : integer := 30;
   type csv_exp_file is record

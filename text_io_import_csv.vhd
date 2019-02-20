@@ -14,7 +14,7 @@ use IEEE.STD_LOGIC_1164.all;
   
 package text_io_import_csv is
 
-constant NUM_COL : integer := 30;
+constant NUM_COL : integer := 60;
 	
 type csv_file is record
 	 data_vecotor_buffer  : t_integer_array(NUM_COL downto 0);
@@ -60,7 +60,7 @@ end csv_readLine;
 procedure csv_skipHeader(variable csv: inout csv_file; file F:text ; headerLines: in integer) is begin
   
   for i in 1 to headerLines loop
-    csv_readLine(csv,F);
+    readline(F, csv.lineBuffer);
   end loop;
   csv.Index:=0;
 end csv_skipHeader;
