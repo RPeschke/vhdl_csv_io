@@ -28,7 +28,7 @@ end procedure;
 
 
   procedure slv_to_integer(signal SLV_in : in STD_LOGIC_VECTOR ; signal Int_out : out integer) is begin
-    Int_out <= to_integer(signed(SLV_in));
+    Int_out <= to_integer(signed('0'&SLV_in));
   end procedure;
 
   procedure sl_to_integer(signal SL_in : in STD_LOGIC ; signal Int_out : out integer) is begin
