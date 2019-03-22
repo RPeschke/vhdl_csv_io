@@ -28,14 +28,25 @@ end procedure;
 
 
   procedure slv_to_integer(signal SLV_in : in STD_LOGIC_VECTOR ; signal Int_out : out integer) is begin
+   
+    
+    for i in SLV_in'low to SLV_in'high loop
+       if  not ( SLV_in(i) = '1' or SLV_in(i) = '0') then 
+         Int_out <= -1;
+         return;
+       end if;
+    end loop;
+    
     Int_out <= to_integer(signed('0'&SLV_in));
   end procedure;
 
   procedure sl_to_integer(signal SL_in : in STD_LOGIC ; signal Int_out : out integer) is begin
     if (SL_in = '1') then 
       Int_out <=1;
-    else 
+    elsif (SL_in = '0') then 
       Int_out <=0;
+    else 
+      Int_out <= -1;
     end if;
 
   end procedure;
