@@ -4,6 +4,9 @@ use ieee.numeric_std.all;
 
 package type_conversions_pgk is
 
+procedure sl_to_slv(signal SL_in : in STD_LOGIC ; signal SLV_out : out STD_LOGIC_VECTOR) ;
+procedure slv_to_slv(signal SLV_in : in STD_LOGIC_VECTOR ; signal SLV_out : out STD_LOGIC_VECTOR) ;
+procedure slv_to_sl(signal  SLV_in : in STD_LOGIC_VECTOR ; signal SLV_out : out STD_LOGIC) ;
 
 procedure integer_to_sl(signal I_in : in integer; signal SL_out : out STD_LOGIC);
 procedure integer_to_slv(signal I_in : in integer; signal SLV_out : out STD_LOGIC_VECTOR);                                                                        
@@ -21,6 +24,31 @@ end type_conversions_pgk;
 
 package body type_conversions_pgk is
   
+  procedure sl_to_slv(signal SL_in : in STD_LOGIC ; signal SLV_out : out STD_LOGIC_VECTOR) is begin 
+  SLV_out(0) <= SL_in;
+  end procedure;
+  
+  procedure slv_to_slv(signal SLV_in : in STD_LOGIC_VECTOR ; signal SLV_out : out STD_LOGIC_VECTOR) is 
+  variable m1 : integer := 0;
+  variable m2 : integer := 0;
+  variable m : integer := 0;
+  begin 
+  m1 := SLV_out'length;
+  m2 := SLV_in'length;
+  
+  if (m1 < m2) then 
+   m := m1;
+  else 
+   m := m2;
+  end if;
+
+  SLV_out(   m - 1 downto 0) <= SLV_in(  m - 1 downto 0);
+  
+  end procedure;
+  
+ procedure slv_to_sl(signal  SLV_in : in STD_LOGIC_VECTOR ; signal SLV_out : out STD_LOGIC) is begin 
+	SLV_out <= SLV_in(0);
+end procedure; 
 procedure natural_to_integer(signal Nat_in :in natural ; signal int_out :out integer) is begin 
   
   int_out <= Nat_in;

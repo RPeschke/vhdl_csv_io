@@ -32,8 +32,9 @@ begin
 
   begin
     if rising_edge(clk) then 
-
+      
       if not csv_isOpen(csv) then
+        report "<csv_openFile>" ;
         csv_openFile(csv,outBuffer, FileName, HeaderLines, NUM_COL);
       end if;
 
