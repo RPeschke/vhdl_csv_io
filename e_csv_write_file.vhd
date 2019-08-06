@@ -2,7 +2,7 @@ library ieee;
   use ieee.std_logic_1164.all;
 
 
-  use work.UtilityPkg.all;
+  use work.CSV_UtilityPkg.all;
   use STD.textio.all;
   use work.text_io_export_csv.all;
 

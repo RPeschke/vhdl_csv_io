@@ -9,7 +9,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-  use work.UtilityPkg.all;
+  use work.CSV_UtilityPkg.all;
   use STD.textio.all;
   
 package text_io_import_csv is

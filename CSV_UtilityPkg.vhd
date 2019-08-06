@@ -17,7 +17,7 @@ use ieee.std_logic_unsigned.all;
 
 use ieee.std_logic_unsigned.all;
 
-package UtilityPkg is
+package CSV_UtilityPkg is
    
    
 
@@ -79,9 +79,9 @@ package UtilityPkg is
 
 
 --   procedure integer_to_natural(signal I_in : in integer; signal Natural_out : out natural);      
-end UtilityPkg;
+end CSV_UtilityPkg;
 
-package body UtilityPkg is
+package body CSV_UtilityPkg is
 
 
  
@@ -150,4 +150,4 @@ package body UtilityPkg is
 
     end sl_multiplexer;
 
-end package body UtilityPkg;
+end package body CSV_UtilityPkg;
