@@ -44,7 +44,8 @@ package CSV_UtilityPkg is
    subtype  integerM is integer;
    subtype  integerS is integer;
    subtype  DWORD is slv(31 downto 0);
-   
+   constant DWORD_null : DWORD :=(others => '0');
+
    -- Useful array types
    type Word8Array  is array (natural range <>) of slv( 7 downto 0);
    type Word9Array  is array (natural range <>) of slv( 8 downto 0);
