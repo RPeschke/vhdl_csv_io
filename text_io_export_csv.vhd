@@ -9,7 +9,7 @@ package text_io_export_csv is
   constant Integer_width : integer := 5;
   constant time_width : integer := 30;
   type csv_exp_file is record
-    data_vecotor_buffer  : t_integer_array(NUM_COL downto 0);
+    data_vecotor_buffer  : c_integer_array(NUM_COL downto 0);
     lineBuffer : line ;
     Index : integer ;
     IsOpen : STD_LOGIC;

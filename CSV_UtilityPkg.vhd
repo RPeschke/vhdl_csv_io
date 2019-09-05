@@ -55,7 +55,7 @@ package CSV_UtilityPkg is
    type Word16Array is array (natural range <>) of slv(15 downto 0);
    type Word32Array is array (natural range <>) of slv(31 downto 0);
 	
-	type t_integer_array       is array(integer range <> )  of integer;
+	type c_integer_array       is array(integer range <> )  of integer;
   
   type TARGETX_TRIGGER_SCALERS is array(9 downto 0) of std_logic_vector(31 downto 0);  
    -----------------------

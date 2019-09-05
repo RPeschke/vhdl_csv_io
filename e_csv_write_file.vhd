@@ -17,7 +17,7 @@ entity csv_write_file is
   port(
     clk : in sl;
 
-    Rows : in t_integer_array(NUM_COL downto 0) := (others => 0)
+    Rows : in c_integer_array(NUM_COL downto 0) := (others => 0)
 
   ); 
 end csv_write_file;

@@ -19,7 +19,7 @@ entity csv_read_file is
   port(
     clk : in STD_LOGIC;
     
-    Rows : out t_integer_array(NUM_COL downto 0) := (others => 0);
+    Rows : out c_integer_array(NUM_COL downto 0) := (others => 0);
 
     Index : out integer := 0;
     eof : out STD_LOGIC := '0'

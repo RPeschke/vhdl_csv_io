@@ -17,7 +17,7 @@ package text_io_import_csv is
 constant NUM_COL : integer := 60;
 	
 type csv_file is record
-	 data_vecotor_buffer  : t_integer_array(NUM_COL downto 0);
+	 data_vecotor_buffer  : c_integer_array(NUM_COL downto 0);
 	 lineBuffer : line ;
 	 Index : integer ;
    IsOpen : STD_LOGIC;
