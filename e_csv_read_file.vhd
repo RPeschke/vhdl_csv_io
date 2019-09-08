@@ -19,7 +19,7 @@ entity csv_read_file is
   port(
     clk : in STD_LOGIC;
     
-    Rows : out c_integer_array(NUM_COL downto 0) := (others => 0);
+    Rows : out c_integer_array(NUM_COL -1 downto 0) := (others => 0);
 
     Index : out integer := 0;
     eof : out STD_LOGIC := '0'
@@ -40,7 +40,7 @@ begin
     begin
 
       if not csv_isOpen(csv) and not isEnd then
-        csv_openFile(csv,input_buf, FileName, HeaderLines, NUM_COL);
+        csv_openFile(csv,input_buf, FileName, HeaderLines, NUM_COL - 1);
       end if;
 
       while (not isEnd) loop
@@ -57,7 +57,7 @@ begin
             end if;
           end loop;
 
-          for i in 0 to NUM_COL loop
+          for i in 0 to NUM_COL -1  loop
             Rows(i) <= csv_get(csv, i)  ;
           end loop;
           Index <= csv_getIndex(csv);
@@ -85,14 +85,14 @@ begin
       begin
         if(falling_edge(clk)) then
         if not csv_isOpen(csv) and not isEnd then
-          csv_openFile(csv,input_buf, FileName, HeaderLines, NUM_COL);
+          csv_openFile(csv,input_buf, FileName, HeaderLines, NUM_COL -1);
         end if;
 
         
           if not endfile(input_buf) then 
             csv_readLine(csv,input_buf);
    
-            for i in 0 to NUM_COL loop
+            for i in 0 to NUM_COL -1 loop
               Rows(i) <= csv_get(csv, i)  ;
             end loop;
             Index <= csv_getIndex(csv);

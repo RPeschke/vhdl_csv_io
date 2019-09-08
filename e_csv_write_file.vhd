@@ -17,7 +17,7 @@ entity csv_write_file is
   port(
     clk : in sl;
 
-    Rows : in c_integer_array(NUM_COL downto 0) := (others => 0)
+    Rows : in c_integer_array(NUM_COL - 1  downto 0) := (others => 0)
 
   ); 
 end csv_write_file;
@@ -35,10 +35,10 @@ begin
       
       if not csv_isOpen(csv) then
         report "<csv_openFile>" ;
-        csv_openFile(csv,outBuffer, FileName, HeaderLines, NUM_COL);
+        csv_openFile(csv,outBuffer, FileName, HeaderLines, NUM_COL - 1 );
       end if;
 
-      for i in 0 to NUM_COL loop 
+      for i in 0 to NUM_COL -1  loop 
         csv_set(csv,i,Rows(i));
       end loop;
       
