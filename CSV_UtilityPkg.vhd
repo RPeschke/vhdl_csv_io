@@ -47,13 +47,13 @@ package CSV_UtilityPkg is
    constant DWORD_null : DWORD :=(others => '0');
 
    -- Useful array types
-   type Word8Array  is array (natural range <>) of slv( 7 downto 0);
-   type Word9Array  is array (natural range <>) of slv( 8 downto 0);
-   type Word10Array is array (natural range <>) of slv( 9 downto 0);
-   type Word12Array is array (natural range <>) of slv(11 downto 0);
-   type Word13Array is array (natural range <>) of slv(12 downto 0);
-   type Word16Array is array (natural range <>) of slv(15 downto 0);
-   type Word32Array is array (natural range <>) of slv(31 downto 0);
+   type CWord8Array  is array (natural range <>) of slv( 7 downto 0);
+   type CWord9Array  is array (natural range <>) of slv( 8 downto 0);
+   type CWord10Array is array (natural range <>) of slv( 9 downto 0);
+   type CWord12Array is array (natural range <>) of slv(11 downto 0);
+   type CWord13Array is array (natural range <>) of slv(12 downto 0);
+   type CWord16Array is array (natural range <>) of slv(15 downto 0);
+   type CWord32Array is array (natural range <>) of slv(31 downto 0);
 	
 	type c_integer_array       is array(integer range <> )  of integer;
   
@@ -68,9 +68,9 @@ package CSV_UtilityPkg is
    -- Count number of 1's in a std_logic_vector
    function countOnes (input : slv) return integer;
    -- Sum up number of bytes
-   function sumBytes (input : Word8Array) return integer;
+   function sumBytes (input : CWord8Array) return integer;
    -- Sum up an array of 2-byte inputs
-   function sum2Bytes (input : Word16Array) return integer;
+   function sum2Bytes (input : CWord16Array) return integer;
    
  
    
@@ -117,7 +117,7 @@ package body CSV_UtilityPkg is
      return retVal;
    end function;
    
-   function sumBytes (input : Word8Array) return integer is
+   function sumBytes (input : CWord8Array) return integer is
       variable retVal : integer := 0;
    begin
       for i in input'range loop
@@ -126,7 +126,7 @@ package body CSV_UtilityPkg is
       return retVal;
    end function;
    
-   function sum2Bytes (input : Word16Array) return integer is
+   function sum2Bytes (input : CWord16Array) return integer is
       variable retVal : integer := 0;
    begin
       for i in input'range loop
